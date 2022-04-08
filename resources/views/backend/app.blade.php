@@ -32,14 +32,15 @@
                     <li><a href="/setting">General Setting</a></li>
                     <li><a href="/breed">Manage Breed</a></li>
                     <li><a href="/group">Pig Group</a></li>
-                    <li><a href="#">Feed Type</a></li>
-                    <li><a href="#">Income Categories</a></li>
-                    <li><a href="#">Expense Categoreis</a></li>
-                    <li><a href="#">Manage Pig</a></li>
-                    <li><a href="#">Feeds</a></li>
-                    <li><a href="#">Event</a></li>
+                    <li><a href="/feedtype">Feed Type</a></li>
+                    <li><a href="/income">Income Categories</a></li>
+                    <li><a href="/expenses">Expense Categories</a></li>
+                    <li><a href="/feed">Feeds</a></li>
+                    <li><a href="/event">Event</a></li>
                     <li><a href="#">Income</a></li>
-                    <li><a href="#">Expenses</a></li>
+                    <li>
+                        <a href="#" >Expenses</a>
+                    </li>
                     <li><a href="#">Report</a></li>
 
 
