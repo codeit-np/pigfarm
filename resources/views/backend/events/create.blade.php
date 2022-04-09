@@ -17,11 +17,11 @@
                             </div>
                             <div class="form-group" my-2>
                                 <label for="description">Description</label>
-                                <input id="description" class="form-control" type="text" name="description"
+                                <input id="name" class="form-control" type="text" name="description"
                                     value="{{ old('description') }}">
                             </div>
                             <div class="form-group" my-2>
-                                <label for="date">Dates</label>
+                                <label for="date">Date</label>
                                 <input id="date" class="form-control" type="date" name="date"
                                     value="{{ old('date') }}">
                             </div>
