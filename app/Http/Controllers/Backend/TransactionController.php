@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\AccountCategory;
 use App\Models\IncomeCategory;
+use App\Models\SubCategory;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\AcceptHeader;
 
-class IncomeController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +19,8 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        $income = IncomeCategory::where('user_id',Auth::user()->id)->get();
-        $account = AccountCategory::all();
-        return view('backend.income.index',compact('income','account'));
+        $transactions = Transaction::orderBy('id','desc')->get();
+        return view('backend.transaction.index',compact('transactions'));
     }
 
     /**
@@ -30,9 +30,8 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        $income = IncomeCategory::all();
-        $account = AccountCategory::all();
-        return view('backend.income.create',compact('income','account'));
+        $account = SubCategory::all();
+        return view('backend.transaction.create',compact('account'));
     }
 
     /**
@@ -43,15 +42,16 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
-        $income = new IncomeCategory();
-        $income->name = $request->name;
-        $income->account_category_id = $request->account_category_id;
-        $income->user_id = Auth::user()->id;
-
-        $income->save();
+        $transaction = new Transaction();
+        $transaction->date = $request->date;
+        $transaction->sub_category_id = $request->sub_category_id;
+        $transaction->amount = $request->amount;
+        $transaction->ref = $request->ref;
+        $transaction->remarks = $request->remarks;
+        $transaction->user_id = Auth::user()->id;
+        $transaction->save();
         toast("Record Saved Successfully","success");
-
-        return redirect('/subcategories');
+        return redirect("/transaction");
     }
 
     /**
@@ -73,9 +73,9 @@ class IncomeController extends Controller
      */
     public function edit($id)
     {
-        $income = IncomeCategory::find($id);
-        $account = AccountCategory::all();
-        return view('backend.income.edit',compact('income','account'));
+        $transaction = Transaction::find($id);
+        $accounts = AccountCategory::all();
+        return view('backend.transaction.edit',compact('transaction','accounts'));
     }
 
     /**
@@ -87,15 +87,16 @@ class IncomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $income =  IncomeCategory::find($id);
-        $income->name = $request->name;
-        $income->account_category_id = $request->account_category_id;
-        $income->user_id = Auth::user()->id;
-
-        $income->save();
-        toast("Record Update Successfully","success");
-
-        return redirect('/subcategories');
+        $transaction =  Transaction::find($id);
+        $transaction->date = $request->date;
+        $transaction->sub_category_id = $request->sub_category_id;
+        $transaction->amount = $request->amount;
+        $transaction->ref = $request->ref;
+        $transaction->remarks = $request->remarks;
+        $transaction->user_id = Auth::user()->id;
+        $transaction->update();
+        toast("Record Updated Successfully","success");
+        return redirect("/transaction");
     }
 
     /**

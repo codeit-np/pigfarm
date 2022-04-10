@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Backend\AccountsController;
 use App\Http\Controllers\Backend\BreedController;
 use App\Http\Controllers\Backend\EventController;
@@ -8,7 +9,9 @@ use App\Http\Controllers\Backend\FeedsController;
 use App\Http\Controllers\Backend\FeedTypeController;
 use App\Http\Controllers\Backend\GroupsController;
 use App\Http\Controllers\Backend\IncomeController;
+use App\Http\Controllers\Backend\PigController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\TransactionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +39,9 @@ Route::resource('feed',FeedsController::class);
 Route::resource('feedtype',FeedTypeController::class);
 Route::resource('breed',BreedController::class);
 Route::resource('group',GroupsController::class);
-Route::resource('income',IncomeController::class);
-Route::resource('expenses',ExpenseController::class);
+Route::resource('subcategories',SubCategoryController::class);
+// Route::resource('expenses',ExpenseController::class);
 Route::resource('event',EventController::class);
+Route::resource('transaction',TransactionController::class);
+Route::resource('pig',PigController::class);
 

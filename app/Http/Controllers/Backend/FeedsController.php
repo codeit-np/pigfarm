@@ -48,7 +48,7 @@ class FeedsController extends Controller
         $feed->date_of_purchase = $request->date_of_purchase;
         $feed->notes = $request->notes;
         $feed->user_id = Auth::user()->id;
-        
+
 
         $feed->save();
         toast("Record Saved Successfully","success");
@@ -76,7 +76,7 @@ class FeedsController extends Controller
     public function edit($id)
     {
         $feed = Feed::find($id);
-        $feedtype = FeedType::all();
+        $feedtype = FeedType::where('user_id',Auth::user()->id)->get();
         return view('backend.feeds.edit',compact('feed','feedtype'));
     }
 
@@ -96,9 +96,8 @@ class FeedsController extends Controller
         $feed->date_of_purchase = $request->date_of_purchase;
         $feed->notes = $request->notes;
         $feed->user_id = Auth::user()->id;
-        
 
-        $feed->save();
+        $feed->update();
         toast("Record Update Successfully","success");
 
         return redirect('/feed');

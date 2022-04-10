@@ -5,34 +5,38 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="/income/create" class="btn btn-primary btn-sm">Income</a>
+                    <a href="/pig/create" class="btn btn-primary btn-sm">New Pig</a>
                 </div>
                 <div class="card-body">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>SN</th>
-                                <th>Name</th>
-                                <th>Account Categories</th>
+                                <th>Pig Name</th>
+                                <th>Tag No</th>
+                                <th>Weight</th>
+                                <th>Gender</th>
+                                <th>Pig Obtain by</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                             <thead>
-                                @foreach ($income  as $index=> $item)
-
+                                @foreach ($pigs  as $index=> $item)
                                 <tr>
                                     <td>{{ ++$index }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->account_category->name }}</td>
+                                    <td>{{ $item->tag_no }}kg</td>
+                                    <td>{{ $item->weight }}</td>
+                                    <td>{{ $item->gender }}</td>
+                                    <td>{{ $item->pig_obtain_by }}</td>
                                     <td>
-                                        <a href="/income/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+                                        <a href="/pig/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
                                     </td>
                                 </tr>
                             @endforeach
-                                 
                             </thead>
-                        
+
                     </table>
                 </div>
             </div>

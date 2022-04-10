@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AccountCategory;
-use App\Models\IncomeCategory;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\AcceptHeader;
 
-class IncomeController extends Controller
+class SubCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +16,8 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        $income = IncomeCategory::where('user_id',Auth::user()->id)->get();
-        $account = AccountCategory::all();
-        return view('backend.income.index',compact('income','account'));
+        $subcategories = SubCategory::all();
+        return view('backend.subcategories.index',compact('subcategories'));
     }
 
     /**
@@ -30,9 +27,8 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        $income = IncomeCategory::all();
-        $account = AccountCategory::all();
-        return view('backend.income.create',compact('income','account'));
+        $accounts = AccountCategory::all();
+        return view('backend.subcategories.create',compact('accounts'));
     }
 
     /**
@@ -43,15 +39,12 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
-        $income = new IncomeCategory();
-        $income->name = $request->name;
-        $income->account_category_id = $request->account_category_id;
-        $income->user_id = Auth::user()->id;
-
-        $income->save();
+        $subcategory = new SubCategory();
+        $subcategory->name = $request->name;
+        $subcategory->account_category_id	= $request->account_category_id;
+        $subcategory->save();
         toast("Record Saved Successfully","success");
-
-        return redirect('/subcategories');
+        return redirect("/subcategories");
     }
 
     /**
@@ -73,9 +66,9 @@ class IncomeController extends Controller
      */
     public function edit($id)
     {
-        $income = IncomeCategory::find($id);
-        $account = AccountCategory::all();
-        return view('backend.income.edit',compact('income','account'));
+        $subcategory = SubCategory::find($id);
+        $accounts = AccountCategory::all();
+        return view('backend.subcategories.edit',compact('subcategory','accounts'));
     }
 
     /**
@@ -87,15 +80,12 @@ class IncomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $income =  IncomeCategory::find($id);
-        $income->name = $request->name;
-        $income->account_category_id = $request->account_category_id;
-        $income->user_id = Auth::user()->id;
-
-        $income->save();
-        toast("Record Update Successfully","success");
-
-        return redirect('/subcategories');
+        $subcategory =  SubCategory::find($id);
+        $subcategory->name = $request->name;
+        $subcategory->account_category_id	= $request->account_category_id;
+        $subcategory->update();
+        toast("Record Updated Successfully","success");
+        return redirect("/subcategories");
     }
 
     /**

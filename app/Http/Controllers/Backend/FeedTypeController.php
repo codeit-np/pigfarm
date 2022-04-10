@@ -83,21 +83,10 @@ class FeedTypeController extends Controller
     {
         $feedtype =  FeedType::find($id);
         $feedtype->name = $request->name;
-        $feedtype->feed_type_id = $request->feed_type_id;
-        $feedtype->qty = $request->qty;
-        $feedtype->cost_of_feed = $request->cost_of_feed;
-        $feedtype->date_of_purchase = $request->date_of_purchase;
-        $feedtype->notes = $request->notes;
         $feedtype->user_id = Auth::user()->id;
-        // if($request->hasFile('logo')){
-        //     $file = $request->logo;
-        //     $newName = time() . $file->getClientOriginalName();
-        //     $file->move("images",$newName);
-        //     $feed->logo = "images/$newName";
-        // }
 
-        $feedtype->save();
-        toast("Record Update Successfully","success");
+        $feedtype->update();
+        toast("Record Updated Successfully","success");
 
         return redirect('/feedtype');
     }

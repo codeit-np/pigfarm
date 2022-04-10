@@ -10,6 +10,7 @@
                 <div class="card-body">
                     <form action="/feedtype/{{ $feedtype->id }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                         <div class="form-group my-2">
                             <label for="name">Name *</label>
                             <input id="name" class="form-control" type="text" name="name" value="{{ $feedtype->name }}">
@@ -22,7 +23,7 @@
                             <label for="user_id">User ID</label>
                             <input id="user_id" class="form-control" type="text" name="user_id" value="{{ old('user_id') }}">
                         </div> --}}
-                        
+
                         {{-- <div class="form-group my-2">
                             <label for="logo">Upload Company Logo *</label>
                             <input id="logo" class="form-control-file" type="file" name="logo" value="{{ old('logo') }}">
