@@ -77,7 +77,7 @@
                         <div class="row my-2">
                             <div class="col-md-4">
                                <div class="form-group">
-                                   <label for="pig_group_id">Pig's Group (Optinal)</label>
+                                   <label for="pig_group_id">Pig's Group (Optional)</label>
                                    <select id="pig_group_id" class="form-control" name="pig_group_id">
                                        @foreach ($groups as $item)
                                            <option value="{{ $item->id }}" {{ $item->id == $pig->pig_group_id ? 'selected' : '' }}>{{ $item->name }}</option>
@@ -97,7 +97,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="if_other">If other Specify the source of pig</label>
+                                    <label for="if_other">If other Specify the source of pig (Optional)</label>
                                     <input id="if_other" class="form-control" type="text" name="if_other" value="{{ $pig->if_other }}">
                                 </div>
                             </div>
@@ -107,21 +107,21 @@
                        <div class="row my-2">
                            <div class="col-md-4">
                                <div class="form-group">
-                                   <label for="mother_tag_no">Mother Tag No</label>
+                                   <label for="mother_tag_no">Mother Tag No (Optional)</label>
                                    <input id="mother_tag_no" class="form-control" type="text" name="mother_tag_no" value="{{ $pig->mother_tag_no }}">
                                </div>
                            </div>
 
                            <div class="col-md-4">
                             <div class="form-group">
-                                <label for="father_tag_no">Father Tag No</label>
+                                <label for="father_tag_no">Father Tag No (Optional)</label>
                                 <input id="father_tag_no" class="form-control" type="text" name="father_tag_no" value="{{ $pig->father_tag_no }}">
                             </div>
                         </div>
                        </div>
 
                        <div class="form-group">
-                           <label for="notes">Write som notes</label>
+                           <label for="notes">Write som notes (Optional)</label>
                            <textarea id="notes" class="form-control" name="notes" rows="3">{{ $pig->notes }}</textarea>
                        </div>
                         <button type="submit" class="btn btn-primary btn-sm my-2">Update Changes</button>

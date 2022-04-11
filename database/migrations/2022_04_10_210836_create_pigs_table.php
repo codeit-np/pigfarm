@@ -22,12 +22,12 @@ return new class extends Migration
             $table->string('weight');
             $table->enum('gender',['male','female']);
             $table->date('dob')->nullable();
-            $table->date('date_of_entry_on_farm');
+            $table->date('date_of_entry_on_farm')->nullable();
             $table->foreignId('pig_group_id')->nullable();
             $table->enum('pig_obtain_by',['Born on farm','Purchased','Other']);
             $table->string('if_other')->nullable();
-            $table->string('mother_tag_no');
-            $table->string('father_tag_no');
+            $table->string('mother_tag_no')->nullable();
+            $table->string('father_tag_no')->nullable();
             $table->longText('notes')->nullable();
             $table->timestamps();
         });
