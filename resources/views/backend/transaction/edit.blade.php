@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="remarks">Remarks (Optinal)</label>
+                            <label for="remarks">Remarks (Optional)</label>
                             <textarea id="remarks" class="form-control" name="remarks" rows="3">{{ $transaction->remarks }}</textarea>
                         </div>
 

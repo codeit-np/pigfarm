@@ -96,7 +96,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="if_other">If other Specify the source of pig (Optinal)</label>
+                                    <label for="if_other">If other Specify the source of pig (Optional)</label>
                                     <input id="if_other" class="form-control" type="text" name="if_other">
                                 </div>
                             </div>
