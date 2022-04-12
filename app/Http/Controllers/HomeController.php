@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AccountCategory;
+use App\Models\Pig;
+use App\Models\SubCategory;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,37 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalPig = Pig::count();
+       //Total Income
+        $incomes = SubCategory::with(['transactions' => function($query){
+            $query->sum('amount');
+         }])->get();
+
+         $totalIncome = 0;
+         $incomeList = $incomes[0]['transactions']; 
+    
+        foreach($incomeList as $item){
+            $totalIncome = $totalIncome + $item['amount'];
+        }
+    
+        //  return $totalIncome;
+
+          //Total Expanse
+        $expanse = SubCategory::with(['transactions' => function($query){
+            $query->sum('amount');
+         }])->get();
+
+         $totalExpanse = 0;
+         $expanseList = $expanse[1]['transactions']; 
+    
+        foreach($expanseList as $item){
+            $totalExpanse = $totalExpanse + $item['amount'];
+        }
+
+    
+        //  return $totalExpanse;
+
+
+        return view('home',compact('totalPig','totalIncome','totalExpanse'));
     }
 }

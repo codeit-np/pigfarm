@@ -21,20 +21,25 @@
                             </tr>
                         </thead>
 
-                            {{-- <thead>
+                            <tbody>
                                 @foreach ($event  as $index=> $item)
 
                                 <tr>
                                     <td>{{ ++$index }}</td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->description }}</td>
+                                    <td>{{ $item->date }}</td>
+                                    <td>{{ $item->time_begin }}</td>
+                                    <td>{{ $item->time_end }}</td>
+                                    <td>{{ $item->location }}</td>
                                     
                                     <td>
-                                        <a href="/breed/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+                                        <a href="/event/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
                                     </td>
                                 </tr>
                             @endforeach
                                  
-                            </thead> --}}
+                            </tbody>
                         
                     </table>
                 </div>

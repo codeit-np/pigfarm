@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>{{ ++$index }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->tag_no }}kg</td>
+                                    <td>{{ $item->tag_no }}</td>
                                     <td>{{ $item->weight }}</td>
                                     <td>{{ $item->gender }}</td>
                                     <td>{{ $item->pig_obtain_by }}</td>

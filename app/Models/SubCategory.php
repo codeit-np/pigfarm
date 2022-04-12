@@ -12,4 +12,10 @@ class SubCategory extends Model
     {
         return $this->belongsTo(AccountCategory::class);
     }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
+ 

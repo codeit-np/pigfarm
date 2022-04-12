@@ -16,7 +16,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $event = Event::all();
+        $event = Event::where('user_id',Auth::user()->id)->get();
         return view('backend.events.index',compact('event'));
     }
 
@@ -27,7 +27,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('backend.events.create');
+        $event = Event::all();
+        return view('backend.events.create',compact('event'));
     }
 
     /**
@@ -74,7 +75,8 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+        return view('backend.events.edit',compact('event'));
     }
 
     /**
@@ -86,7 +88,21 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = Event::find($id);
+
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->date = $request->date;
+        $event->time_begin = $request->time_begin;
+        $event->time_end = $request->time_end;
+        $event->location = $request->location;
+
+        $event->user_id = Auth::user()->id;
+
+        $event->save();
+        toast("Record update Successfully","success");
+
+        return redirect('/event');
     }
 
     /**
