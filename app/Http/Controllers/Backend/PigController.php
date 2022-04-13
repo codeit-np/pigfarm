@@ -7,6 +7,7 @@ use App\Models\Breed;
 use App\Models\Pig;
 use App\Models\PigGroup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PigController extends Controller
 {
@@ -17,7 +18,7 @@ class PigController extends Controller
      */
     public function index()
     {
-        $pigs = Pig::orderBy('id','desc')->get();
+        $pigs = Pig::orderBy('id','desc')->where('user_id',Auth::user()->id)->get();
         return view('backend.pig.index',compact('pigs'));
     }
 
@@ -56,6 +57,7 @@ class PigController extends Controller
         $pig->mother_tag_no = $request->mother_tag_no;
         $pig->father_tag_no = $request->father_tag_no;
         $pig->notes = $request->notes;
+        $pig->user_id = Auth::user()->id;
         $pig->save();
         toast("Record Saved Successfully","success");
         return redirect("/pig");
@@ -110,6 +112,7 @@ class PigController extends Controller
         $pig->mother_tag_no = $request->mother_tag_no;
         $pig->father_tag_no = $request->father_tag_no;
         $pig->notes = $request->notes;
+        $pig->user_id = Auth::user()->id;
         $pig->update();
         toast("Record Updated Successfully","success");
         return redirect("/pig");
@@ -123,6 +126,9 @@ class PigController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pig = Pig::find($id);
+        $pig->delete();
+        toast("Record Deleted Successfully","success");
+        return redirect("/pig");
     }
 }

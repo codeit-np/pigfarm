@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('mother_tag_no')->nullable();
             $table->string('father_tag_no')->nullable();
             $table->longText('notes')->nullable();
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

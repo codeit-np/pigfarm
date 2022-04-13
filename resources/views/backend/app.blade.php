@@ -19,7 +19,7 @@
     @include('sweetalert::alert')
 
     <header>
-        <div class="logo">User<span>Dashboard</span></div>
+        <div class="logo">User<span>Dashboardsss</span></div>
     </header>
     <div class="nav-btn">Menu</div>
     <div class="container-fluid">
@@ -60,7 +60,11 @@
         </div>
 
         <div class="main-content">
+            @if (!empty($company))
+            <h5>{{ $company->name }} Dashboard</h5>
+            @else
             <h5>User Dashboard</h5>
+            @endif
             @yield('content')
         </div>
     </div>

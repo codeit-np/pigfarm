@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\AccountCategory;
 use App\Models\Pig;
+use App\Models\Setting;
 use App\Models\SubCategory;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -27,6 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $totalPig = Pig::count();
        //Total Income
         $incomes = SubCategory::with(['transactions' => function($query){
@@ -34,12 +37,12 @@ class HomeController extends Controller
          }])->get();
 
          $totalIncome = 0;
-         $incomeList = $incomes[0]['transactions']; 
-    
+         $incomeList = $incomes[0]['transactions'];
+
         foreach($incomeList as $item){
             $totalIncome = $totalIncome + $item['amount'];
         }
-    
+
         //  return $totalIncome;
 
           //Total Expanse
@@ -48,16 +51,18 @@ class HomeController extends Controller
          }])->get();
 
          $totalExpanse = 0;
-         $expanseList = $expanse[1]['transactions']; 
-    
+         $expanseList = $expanse[1]['transactions'];
+
         foreach($expanseList as $item){
             $totalExpanse = $totalExpanse + $item['amount'];
         }
 
-    
+
+        $company = Setting::where('user_id',Auth::user()->id)->first();
+
         //  return $totalExpanse;
 
 
-        return view('home',compact('totalPig','totalIncome','totalExpanse'));
+        return view('home',compact('totalPig','totalIncome','totalExpanse','company'));
     }
 }
