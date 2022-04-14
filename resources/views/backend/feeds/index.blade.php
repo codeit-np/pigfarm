@@ -8,7 +8,7 @@
                     <a href="/feed/create" class="btn btn-primary btn-sm">Feeds</a>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table" id="datatable">
                         <thead>
                             <tr>
                                 <th>SN</th>
@@ -21,7 +21,7 @@
                             </tr>
                         </thead>
 
-                            <thead>
+                            <tbody>
                                 @foreach ($feed  as $index=> $item)
 
                                 <tr>
@@ -31,15 +31,15 @@
                                     <td>{{ $item->cost_of_feed }}</td>
                                     <td>{{ $item->date_of_purchase }}</td>
                                     <td>{{ $item->notes }}</td>
-                                    
+
                                     <td>
                                         <a href="/feed/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
                                     </td>
                                 </tr>
                             @endforeach
-                                 
-                            </thead>
-                        
+
+                            </tbody>
+
                     </table>
                 </div>
             </div>

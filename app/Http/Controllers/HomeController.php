@@ -30,10 +30,10 @@ class HomeController extends Controller
     public function index()
     {
 
-        $totalPig = Pig::count();
+        $totalPig = Pig::where('user_id',Auth::user()->id)->count();
        //Total Income
         $incomes = SubCategory::with(['transactions' => function($query){
-            $query->sum('amount');
+            $query->where('user_id',Auth::user()->id);
          }])->get();
 
          $totalIncome = 0;
@@ -47,7 +47,7 @@ class HomeController extends Controller
 
           //Total Expanse
         $expanse = SubCategory::with(['transactions' => function($query){
-            $query->sum('amount');
+            $query->where('user_id',Auth::user()->id);
          }])->get();
 
          $totalExpanse = 0;

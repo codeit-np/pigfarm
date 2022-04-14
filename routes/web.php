@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\SubCategoryController;
-use App\Http\Controllers\Backend\AccountsController;
 use App\Http\Controllers\Backend\BreedController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\ExpenseController;
+use App\Http\Controllers\Backend\ExpensesReportController;
 use App\Http\Controllers\Backend\FeedsController;
 use App\Http\Controllers\Backend\FeedTypeController;
 use App\Http\Controllers\Backend\GroupsController;
-use App\Http\Controllers\Backend\IncomeController;
+use App\Http\Controllers\Backend\IncomeReportController;
 use App\Http\Controllers\Backend\PigController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\TransactionController;
@@ -44,4 +44,6 @@ Route::resource('subcategories',SubCategoryController::class);
 Route::resource('event',EventController::class);
 Route::resource('transaction',TransactionController::class);
 Route::resource('pig',PigController::class);
+Route::resource('income',IncomeReportController::class);
+Route::resource('expenses',ExpensesReportController::class);
 

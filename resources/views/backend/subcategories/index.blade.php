@@ -8,7 +8,7 @@
                     <a href="/subcategories/create" class="btn btn-primary btn-sm">Add Subcategories</a>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table" id="datatable">
                         <thead>
                             <tr>
                                 <th>SN</th>
@@ -18,7 +18,7 @@
                             </tr>
                         </thead>
 
-                            <thead>
+                            <tbody>
                                 @foreach ($subcategories  as $index=> $item)
 
                                 <tr>
@@ -31,7 +31,7 @@
                                 </tr>
                             @endforeach
 
-                            </thead>
+                            </tbody>
 
                     </table>
                 </div>

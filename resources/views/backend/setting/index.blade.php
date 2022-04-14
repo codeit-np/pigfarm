@@ -26,7 +26,7 @@
                         </thead>
 
                         @if (!empty($setting))
-                            <thead>
+                            <tbody>
                                 <tr>
                                     <td><img src="{{ asset($setting->logo) }}" width="32" alt=""></td>
                                     <td>{{ $setting->name }}</td>
@@ -37,7 +37,7 @@
                                         <a href="/setting/{{ $setting->id }}/edit" class="badge bg-info">Edit</a>
                                     </td>
                                 </tr>
-                            </thead>
+                            </tbody>
                         @endif
                     </table>
                 </div>

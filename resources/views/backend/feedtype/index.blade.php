@@ -8,33 +8,33 @@
                     <a href="/feedtype/create" class="btn btn-primary btn-sm">Feed Types</a>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table" id="datatable">
                         <thead>
                             <tr>
                                 <th>SN</th>
                                 <th>Name</th>
                                 {{-- <th>User Id</th> --}}
-                                
+
                                 <th>Action</th>
                             </tr>
                         </thead>
 
-                        <thead>
+                        <tbody>
                             @foreach ($feedtype  as $index=> $item)
 
                             <tr>
                                 <td>{{ ++$index }}</td>
                                 <td>{{ $item->name }}</td>
-                                
+
                                 {{-- <td>{{ $item->user_id }}</td> --}}
                                 <td>
                                     <a href="/feedtype/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
                                 </td>
                             </tr>
                         @endforeach
-                             
-                        </thead>
-                        
+
+                        </tbody>
+
                     </table>
                 </div>
             </div>

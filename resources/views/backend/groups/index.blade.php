@@ -8,7 +8,7 @@
                     <a href="/group/create" class="btn btn-primary btn-sm">Groups</a>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table" id="datatable">
                         <thead>
                             <tr>
                                 <th>SN</th>
@@ -17,21 +17,21 @@
                             </tr>
                         </thead>
 
-                            <thead>
+                            <tbody>
                                 @foreach ($piggroup as $index=> $item)
 
                                 <tr>
                                     <td>{{ ++$index }}</td>
                                     <td>{{ $item->name }}</td>
-                                    
+
                                     <td>
                                         <a href="/group/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
                                     </td>
                                 </tr>
                             @endforeach
-                                 
-                            </thead>
-                        
+
+                            </tbody>
+
                     </table>
                 </div>
             </div>

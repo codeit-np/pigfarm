@@ -8,7 +8,7 @@
                     <a href="/pig/create" class="btn btn-primary btn-sm">New Pig</a>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table" id="datatable">
                         <thead>
                             <tr>
                                 <th>SN</th>
@@ -21,7 +21,7 @@
                             </tr>
                         </thead>
 
-                            <thead>
+                            <tbody>
                                 @foreach ($pigs  as $index=> $item)
                                 <tr>
                                     <td>{{ ++$index }}</td>
@@ -35,7 +35,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            </thead>
+                            </tbody>
 
                     </table>
                 </div>
