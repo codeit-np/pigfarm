@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Notifications\EventNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class EventController extends Controller
 {
@@ -55,7 +56,7 @@ class EventController extends Controller
         $event->save();
 
         $user = User::where('id',Auth::user()->id)->first();
-        $user->notify(new EventNotification());
+        Notification::send($user,new EventNotification());
         toast("Record Saved Successfully","success");
 
         return redirect('/event');

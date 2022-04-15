@@ -44,7 +44,9 @@ class EventNotification extends Notification
     {
         $event = Event::orderBy('id','desc')->where('user_id',Auth::user()->id)->first();
         return (new MailMessage)
-                    ->line("${$event['title']}\n ${$event['description']}\n Time:${$event['time_begin']}\n Date:${$event['date']}\n")
+                    ->subject($event['title'])
+                    ->line($event['description'])
+                    ->line($event['date'])
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
     }
