@@ -40,14 +40,14 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $event = new Event();
-        
+
         $event->title = $request->title;
         $event->description = $request->description;
         $event->date = $request->date;
         $event->time_begin = $request->time_begin;
         $event->time_end = $request->time_end;
         $event->location = $request->location;
-        
+
         $event->user_id = Auth::user()->id;
 
         $event->save();
@@ -113,6 +113,9 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+        toast("Record Deleted Successfully","success");
+        return redirect("/event");
     }
 }

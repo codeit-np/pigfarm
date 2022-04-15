@@ -33,7 +33,13 @@
                                         <td>{{ $item->time_end }}</td>
                                         <td>{{ $item->location }}</td>
                                         <td>
-                                            <a href="/event/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+
+                                            <form action="/event/{{ $item->id }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <a href="/event/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+                                                <button type="submit" class="btn badge bg-danger">Delete</button>
+                                                </form>
                                         </td>
                                     </tr>
                                 @endforeach
