@@ -12,32 +12,32 @@
                             @csrf
                             <div class="form-group" my-2>
                                 <label for="title">Title</label>
-                                <input id="title" class="form-control" type="text" name="title"
+                                <input required id="title" class="form-control" type="text" name="title"
                                     value="{{ old('title') }}">
                             </div>
                             <div class="form-group" my-2>
                                 <label for="description">Description</label>
-                                <input id="#" class="form-control" type="text" name="description"
+                                <input required id="#" class="form-control" type="text" name="description"
                                     value="{{ old('description') }}">
                             </div>
                             <div class="form-group" my-2>
                                 <label for="date">Dates</label>
-                                <input id="date" class="form-control" type="date" name="date"
+                                <input required id="date" class="form-control" type="date" name="date"
                                     value="{{ old('date') }}">
                             </div>
                             <div class="form-group" my-2>
                                 <label for="time_begin">Time Begins</label>
-                                <input id="time_begin" class="form-control" type="time" name="time_begin"
+                                <input required id="time_begin" class="form-control" type="time" name="time_begin"
                                     value="{{ old('time_begin') }}">
                             </div>
                             <div class="form-group" my-2>
                                 <label for="time_end">Time Ends</label>
-                                <input id="time_end" class="form-control" type="time" name="time_end"
+                                <input required id="time_end" class="form-control" type="time" name="time_end"
                                     value="{{ old('time_end') }}">
                             </div>
                             <div class="form-group" my-2>
                                 <label for="location">Location</label>
-                                <input id="location" class="form-control" type="text" name="location"
+                                <input required id="location" class="form-control" type="text" name="location"
                                     value="{{ old('location') }}">
                             </div>
 
