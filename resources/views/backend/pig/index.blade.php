@@ -31,7 +31,12 @@
                                     <td>{{ $item->gender }}</td>
                                     <td>{{ $item->pig_obtain_by }}</td>
                                     <td>
-                                        <a href="/pig/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+                                        <form action="/pig/{{ $item->id }}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <a href="/pig/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+                                            <button type="submit" class="btn badge bg-danger">Delete</button>
+                                            </form>
                                     </td>
                                 </tr>
                             @endforeach
