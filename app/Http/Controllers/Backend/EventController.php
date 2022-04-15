@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\User;
+use App\Notifications\EventNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,6 +53,9 @@ class EventController extends Controller
         $event->user_id = Auth::user()->id;
 
         $event->save();
+
+        $user = User::where('id',Auth::user()->id)->first();
+        $user->notify(new EventNotification());
         toast("Record Saved Successfully","success");
 
         return redirect('/event');
