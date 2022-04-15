@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AccountCategory;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SubCategoryController extends Controller
 {
@@ -16,7 +17,7 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = SubCategory::all();
+        $subcategories = SubCategory::where('user_id',Auth::user()->id)->get();
         return view('backend.subcategories.index',compact('subcategories'));
     }
 
