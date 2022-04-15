@@ -29,8 +29,8 @@ class PigController extends Controller
      */
     public function create()
     {
-        $breeds = Breed::all();
-        $groups = PigGroup::all();
+        $breeds = Breed::where('user_id',Auth::user()->id)->get();
+        $groups = PigGroup::where('user_id',Auth::user()->id)->get();
         return view('backend.pig.create',compact('breeds','groups'));
     }
 
@@ -83,8 +83,8 @@ class PigController extends Controller
     public function edit($id)
     {
         $pig = Pig::find($id);
-        $breeds = Breed::all();
-        $groups = PigGroup::all();
+        $breeds = Breed::where('user_id',Auth::user()->id)->get();
+        $groups = PigGroup::where('user_id',Auth::user()->id)->get();
         return view('backend.pig.edit',compact('pig','breeds','groups'));
     }
 
