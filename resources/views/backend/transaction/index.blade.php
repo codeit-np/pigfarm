@@ -31,7 +31,13 @@
                                         <td>{{ number_format($item->amount,2)}}</td>
                                         <td>{{ $item->remarks ?? "-"}}</td>
                                         <td>
+
+                                            <form action="/transaction/{{ $item->id }}" method="post">
+                                            @csrf
+                                            @method('delete')
                                             <a href="/transaction/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+                                            <button type="submit" class="btn badge bg-danger">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
