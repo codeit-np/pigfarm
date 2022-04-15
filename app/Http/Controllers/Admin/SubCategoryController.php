@@ -43,6 +43,7 @@ class SubCategoryController extends Controller
         $subcategory = new SubCategory();
         $subcategory->name = $request->name;
         $subcategory->account_category_id	= $request->account_category_id;
+        $subcategory->user_id = Auth::user()->id;
         $subcategory->save();
         toast("Record Saved Successfully","success");
         return redirect("/subcategories");
@@ -84,6 +85,7 @@ class SubCategoryController extends Controller
         $subcategory =  SubCategory::find($id);
         $subcategory->name = $request->name;
         $subcategory->account_category_id	= $request->account_category_id;
+        $subcategory->user_id = Auth::user()->id;
         $subcategory->update();
         toast("Record Updated Successfully","success");
         return redirect("/subcategories");
