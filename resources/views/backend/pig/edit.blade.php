@@ -87,7 +87,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="pig_obtain_by">Select how the pig wa obtained *</label>
+                                    <label for="pig_obtain_by">Select how the pig was obtained *</label>
                                     <select id="pig_obtain_by" class="form-control" name="pig_obtain_by">
                                         <option value="Born on farm" {{ "Born on farm" == $pig->pig_obtain_by ? 'selected' : '' }}>Born on farm</option>
                                         <option value="Purchased" {{ "Purchased" == $pig->pig_obtain_by ? 'selected' : '' }}>Purchased</option>
