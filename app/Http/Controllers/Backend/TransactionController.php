@@ -19,7 +19,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::orderBy('id','desc')->get();
+        $transactions = Transaction::orderBy('id','desc')->where('user_id',Auth::user()->id)->get();
         return view('backend.transaction.index',compact('transactions'));
     }
 
