@@ -121,7 +121,7 @@
                        </div>
 
                        <div class="form-group">
-                           <label for="notes">Write som notes (Optional)</label>
+                           <label for="notes">Write some notes (Optional)</label>
                            <textarea id="notes" class="form-control" name="notes" rows="3">{{ $pig->notes }}</textarea>
                        </div>
                         <button type="submit" class="btn btn-primary btn-sm my-2">Update Changes</button>

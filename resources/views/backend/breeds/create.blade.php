@@ -12,7 +12,7 @@
                             @csrf
                             <div class="form-group" my-2>
                                 <label for="name">Names</label>
-                                <input id="name" class="form-control" type="text" name="name"
+                                <input required id="name" class="form-control" type="text" name="name"
                                     value="{{ old('name') }}">
                             </div>
 

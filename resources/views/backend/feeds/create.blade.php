@@ -12,7 +12,7 @@
                     @csrf
                     <div class="form-group" my-2>
                         <label for="feed_type_id">Feed Type</label>
-                        <select id="feed_type_id" class="form-control" name="feed_type_id">
+                        <select required id="feed_type_id" class="form-control" name="feed_type_id">
                             @foreach ($feedtype as $item)
                                 <option value="{{$item->id}}">{{ $item->name}}</option>
                             @endforeach
@@ -20,19 +20,19 @@
                     </div>
                         <div class="form-group my-2">
                             <label for="qty">Quantity *</label>
-                            <input id="qty" class="form-control" type="text" name="qty" value="{{ old('qty') }}">
+                            <input required id="qty" class="form-control" type="text" name="qty" value="{{ old('qty') }}">
                         </div>
                         <div class="form-group my-2">
                             <label for="cost_of_feed">Cost *</label>
-                            <input id="cost_of_feed" class="form-control" type="text" name="cost_of_feed" value="{{ old('cost_of_feed') }}">
+                            <input required id="cost_of_feed" class="form-control" type="text" name="cost_of_feed" value="{{ old('cost_of_feed') }}">
                         </div>
                         <div class="form-group my-2">
                             <label for="date_of_purchase">Purchased Date</label>
-                            <input id="date_of_purchase" class="form-control" type="date" name="date_of_purchase" value="{{ old('date_of_purchase') }}">
+                            <input required id="date_of_purchase" class="form-control" type="date" name="date_of_purchase" value="{{ old('date_of_purchase') }}">
                         </div>
                         <div class="form-group my-2">
                             <label for="notes">Notes</label>
-                            <input id="notes" class="form-control" type="text" name="notes" value="{{ old('notes') }}">
+                            <input required id="notes" class="form-control" type="text" name="notes" value="{{ old('notes') }}">
                         </div>
                         
                         <button type="submit" class="btn btn-primary my-2">Save Record</button>

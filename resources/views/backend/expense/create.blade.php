@@ -12,11 +12,11 @@
                     @csrf
                     <div class="form-group my-2">
                         <label for="name">Name *</label>
-                        <input id="name" class="form-control" type="text" name="name" value="{{ old('name') }}">
+                        <input required id="name" class="form-control" type="text" name="name" value="{{ old('name') }}">
                     </div>
                     <div class="form-group" my-2>
                         <label for="account_category_id">Account Categories</label>
-                        <select id="account_category_id" class="form-control" name="account_category_id">
+                        <select required id="account_category_id" class="form-control" name="account_category_id">
                             @foreach ($account as $item)
                                 <option value="{{$item->id}}">{{ $item->name}}</option>
                             @endforeach

@@ -26,7 +26,8 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->account_category->name }}</td>
                                     <td>
-                                        <a href="/subcategories/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+                                         <a href="/subcategories/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+                                            
                                     </td>
                                 </tr>
                             @endforeach
