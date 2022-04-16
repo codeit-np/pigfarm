@@ -21,28 +21,28 @@
                         </div>
                         <div class="form-group my-2">
                             <label for="name">Pig Name *</label>
-                            <input id="name" class="form-control" type="text" name="name">
+                            <input required id="name" class="form-control" type="text" name="name">
                         </div>
 
                         <div class="row my-2">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="tag_no">Tag No *</label>
-                                    <input id="tag_no" class="form-control" type="text" name="tag_no">
+                                    <input required id="tag_no" class="form-control" type="text" name="tag_no">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="litter_no">Litter No *</label>
-                                    <input id="litter_no" class="form-control" type="text" name="litter_no">
+                                    <input required id="litter_no" class="form-control" type="text" name="litter_no">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="weight">Weight *</label>
-                                    <input id="weight" class="form-control" type="text" name="weight">
+                                    <input required id="weight" class="form-control" type="text" name="weight">
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                        </div>
 
                        <div class="form-group">
-                           <label for="notes">Write som notes (Optional)</label>
+                           <label for="notes">Write some notes (Optional)</label>
                            <textarea id="notes" class="form-control" name="notes" rows="3"></textarea>
                        </div>
                         <button type="submit" class="btn btn-primary btn-sm my-2">Save Changes</button>

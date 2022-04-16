@@ -12,23 +12,23 @@
                     @csrf
                         <div class="form-group my-2">
                             <label for="name">Company Name *</label>
-                            <input id="name" class="form-control" type="text" name="name" value="{{ old('name') }}">
+                            <input required id="name" class="form-control" type="text" name="name" value="{{ old('name') }}">
                         </div>
                         <div class="form-group my-2">
                             <label for="address">Address *</label>
-                            <input id="address" class="form-control" type="text" name="address" value="{{ old('address') }}">
+                            <input required id="address" class="form-control" type="text" name="address" value="{{ old('address') }}">
                         </div>
                         <div class="form-group my-2">
                             <label for="contact">Contact *</label>
-                            <input id="contact" class="form-control" type="text" name="contact" value="{{ old('contact') }}">
+                            <input required id="contact" class="form-control" type="text" name="contact" value="{{ old('contact') }}">
                         </div>
                         <div class="form-group my-2">
                             <label for="email">Email (Optional)</label>
-                            <input id="email" class="form-control" type="text" name="email" value="{{ old('email') }}">
+                            <input required id="email" class="form-control" type="text" name="email" value="{{ old('email') }}">
                         </div>
                         <div class="form-group my-2">
                             <label for="logo">Upload Company Logo *</label>
-                            <input id="logo" class="form-control-file" type="file" name="logo" value="{{ old('logo') }}">
+                            <input required id="logo" class="form-control-file" type="file" name="logo" value="{{ old('logo') }}">
                         </div>
                         <button type="submit" class="btn btn-primary my-2">Save Record</button>
                     </form>
