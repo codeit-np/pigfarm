@@ -10,7 +10,13 @@
                             <div class="card-body">
                                 <p class="card-text">{!! $item->description !!}</p>
                                 <p class="text-muted" style="font-size: 12px">{{ $item->created_at->diffForHumans() }}</p>
+
+                                <form action="/note/{{ $item->id }}" method="post">
+                                @csrf
+                                @method('delete')
                                 <a href="/note/{{ $item->id }}/edit" class="badge bg-info">Edit</a>
+                                <button type="submit" class="btn badge bg-danger">Delete</button>
+                                </form>
                             </div>
                         </div>
                     </div>
