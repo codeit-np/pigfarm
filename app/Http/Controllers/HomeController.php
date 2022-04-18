@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AccountCategory;
+use App\Models\Note;
 use App\Models\Pig;
 use App\Models\Setting;
 use App\Models\SubCategory;
@@ -63,6 +64,7 @@ class HomeController extends Controller
         //  return $totalExpanse;
 
 
-        return view('home',compact('totalPig','totalIncome','totalExpanse','company'));
+        $notes = Note::orderBy('id','desc')->where("user_id",Auth::user()->id)->get();
+        return view('home',compact('totalPig','totalIncome','totalExpanse','company','notes'));
     }
 }

@@ -31,6 +31,25 @@
                     </div>
                 </div> --}}
             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card my-2">
+                        <table class="table m-2" style="font-size: 14px">
+                            <tr>
+                                <th>SN</th>
+                                <th>Notes</th>
+                            </tr>
+                            @foreach ($notes as $index=>$item)
+                                <tr>
+                                    <td>{{ ++$index }}</td>
+                                    <td>{!! $item->description !!}</td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

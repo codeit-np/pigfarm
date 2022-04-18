@@ -45,9 +45,9 @@
                     <li><a href="/transaction">Transaction</a></li>
                     <li><a href="/pig">New Pig</a></li>
 
-
                     <li class="active" style="color: orange;font-size: 18px">Events</li>
                     <li><a href="/event">Event</a></li>
+                    <li><a href="/note">Note</a></li>
 
                     <li>
                         <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();

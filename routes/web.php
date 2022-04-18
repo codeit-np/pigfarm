@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\FeedsController;
 use App\Http\Controllers\Backend\FeedTypeController;
 use App\Http\Controllers\Backend\GroupsController;
 use App\Http\Controllers\Backend\IncomeReportController;
+use App\Http\Controllers\Backend\NoteController;
 use App\Http\Controllers\Backend\PigController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\TransactionController;
@@ -46,4 +47,5 @@ Route::resource('transaction',TransactionController::class);
 Route::resource('pig',PigController::class);
 Route::resource('income',IncomeReportController::class);
 Route::resource('expenses',ExpensesReportController::class);
+Route::resource('note',NoteController::class);
 
