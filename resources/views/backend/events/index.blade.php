@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/event/create" class="btn btn-primary btn-sm">Events</a>
+                        <a href="/events/create" class="btn btn-primary btn-sm">Events</a>
                     </div>
                     <div class="card-body">
                         <table class="table" id="datatable">
